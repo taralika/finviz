@@ -13,7 +13,9 @@ finviz-api
     
 .. image:: http://hits.dwyl.io/mariostoev/finviz.svg
     :target: http://hits.dwyl.io/mariostoev/finviz
-    
+Changes from parent repo:
+-----
+- Added support to deploy this Python code as an HTTP Cloud Function in Google Cloud Platform (GCP) - similar to AWS Lambda.
 
 Downloading & Installation
 -----
