@@ -1,40 +1,41 @@
 finviz-api
-########
+##########
 *Unofficial Python API for FinViz*
 
 .. image:: https://badge.fury.io/py/finviz.svg
     :target: https://badge.fury.io/py/finviz
     
-.. image:: https://img.shields.io/badge/python-3.6-blue.svg
-    :target: https://www.python.org/downloads/release/python-360/
+.. image:: https://img.shields.io/badge/python-3.9-blue.svg
+    :target: https://www.python.org/downloads/release/python-390/
     
 .. image:: https://pepy.tech/badge/finviz
     :target: https://pepy.tech/project/finviz
     
 .. image:: http://hits.dwyl.io/mariostoev/finviz.svg
     :target: http://hits.dwyl.io/mariostoev/finviz
+
 Changes from parent repo:
------
+-------------------------
 - Added support to deploy this Python code as an HTTP Cloud Function in Google Cloud Platform (GCP) - similar to AWS Lambda.
 
 Downloading & Installation
------
+---------------------------
 
-    $ pip install -U git+https://github.com/jaggas/finviz
+    $ pip install -U git+https://github.com/mariostoev/finviz
 
 
 What is Finviz?
-=====
-FinViz_ aims to make market information accessible and provides a lot of data in visual snapshots, allowing traders and investors to quickly find the stock, future or forex pair they are looking for. The site provides advanced screeners, market maps, analysis, comparative tools and charts.
+================
+FinViz_ aims to make market information accessible and provides a lot of data in visual snapshots, allowing traders and investors to quickly find the stock, future or forex pair they are looking for. The site provides advanced screeners, market maps, analysis, comparative tools, and charts.
 
-.. _FinViz: https://finviz.com/
+.. _FinViz: https://finviz.com/?a=128493348
 
 **Important Information**
 
-Any quotes data displayed on finviz.com is delayed by 15 minutes for NASDAQ, and 20 minutes for NYSE and AMEX. This API should **NOT** be used for live trading, it's main purpuse is financial analysis, research and data scraping.
+Any quotes data displayed on finviz.com is delayed by 15 minutes for NASDAQ, and 20 minutes for NYSE and AMEX. This API should **NOT** be used for live trading, it's main purpose is financial analysis, research, and data scraping.
 
 Using Screener
-=====
+===============
 
 Before using the Screener class, you have to manually go to the website's screener and enter your desired settings. The URL will automatically change every time you add a new setting. After you're done the URL will look something like this:
 
@@ -70,7 +71,7 @@ To make matters easier inside the code you won't refer to tables by their number
 .. image:: https://i.imgur.com/cb7UdxB.png
 
 Using Portfolio
-=====
+================
 .. code:: python
 
     from finviz.portfolio import Portfolio
@@ -114,7 +115,7 @@ Note that, if any *optional* fields are left empty, the API will assign them tod
     portfolio.create_portfolio('<portfolio-name>', '<path-to-csv-file>')
 
 Individual stocks
-=====
+==================
 
 .. code:: pycon
 
@@ -130,7 +131,7 @@ Individual stocks
     [{'date': '2019-10-24', 'category': 'Reiterated', 'analyst': 'UBS', 'rating': 'Buy', 'price_from': 235, 'price_to': 275}, ...
 
 Downloading charts
-=====
+===================
 
 .. code:: python
     
@@ -150,22 +151,27 @@ Downloading charts
     # ta='1' > display technical analysis
     # ta='0' > ignore technical analysis
     
+Environment Variables
+======================
+
+Set ``DISABLE_TQDM=1`` in your environment to disable the progress bar.
+
 Documentation
-=====
+==============
 
 You can read the rest of the documentation inside the docstrings.
 
 Contributing 
-=====
+=============
 You can contribute to the project by reporting bugs, suggesting enhancements, or directly by extending and writing features (see the ongoing projects_).
 
 .. _projects: https://github.com/mariostoev/finviz/projects/1
 
 *You can also buy me a coffee!*
 
-.. image:: http://rickrduncan.com/wp-content/uploads/2017/11/buy-me-coffee-paypal.png
+.. image:: https://user-images.githubusercontent.com/8982949/33011169-6da4af5e-cddd-11e7-94e5-a52d776b94ba.png
         :target: https://www.paypal.me/finvizapi
 
 Disclaimer
------
-*Using the library to acquire data from FinViz is against their Terms of Service and robots.txt. Use it responsively and at your own risk. This library is built purely for educational purposes.*
+-----------
+*Using the library to acquire data from FinViz is against their Terms of Service and robots.txt. Use it responsibly and at your own risk. This library is built purely for educational purposes.*
