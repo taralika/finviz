@@ -1,2 +1,2 @@
 #!/bin/bash
-gcloud functions deploy quote --runtime python39 --trigger-http --allow-unauthenticated
+gcloud functions deploy quote --source . --runtime python39 --trigger-http --allow-unauthenticated
