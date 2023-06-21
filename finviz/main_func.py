@@ -36,8 +36,6 @@ def get_stock(ticker):
     keys = ["Ticker", "Company", "Sector", "Industry", "Country"]
     fields = [f.text_content() for f in title.cssselect('a[class="tab-link"]')]
     data = dict(zip(keys, fields))
-    print(fields)
-    print(data)
 
     company_link = title.cssselect('a[class="tab-link"]')[0].attrib["href"]
     data["Website"] = company_link if company_link.startswith("http") else None
