@@ -31,15 +31,15 @@ def get_stock(ticker):
     get_page(ticker)
     page_parsed = STOCK_PAGE[ticker]
 
-    title = page_parsed.cssselect('div[class="fv-container py-2.5"]')[0]
+    title = page_parsed.xpath('//div[contains(@class, "fv-container") and contains(@class, "py-2.5")]')[0]
     data = {}
-    data["Ticker"] = title.cssselect('h1[class="js-recent-quote-ticker quote-header_ticker-wrapper_ticker"]')[0].text_content().strip()
+    data["Ticker"] = title.xpath('.//h1[contains(@class, "js-recent-quote-ticker") and contains(@class, "quote-header_ticker-wrapper_ticker")]')[0].text_content().strip()
     try:
-        company_details = title.cssselect('h2[class="quote-header_ticker-wrapper_company text-xl"]')[0]
+        company_details = title.xpath('.//h2[contains(@class, "quote-header_ticker-wrapper_company") and contains(@class, "text-xl")]')[0]
     except IndexError:
-        company_details = title.cssselect('h2[class="quote-header_ticker-wrapper_company"]')[0]
+        company_details = title.xpath('.//h2[contains(@class, "quote-header_ticker-wrapper_company")]')[0]
     data["Company"] = company_details.text_content().strip()
-    company_link = company_details.cssselect('a[class="tab-link block truncate"]')[0].attrib["href"]
+    company_link = company_details.xpath('.//a[contains(@class, "tab-link") and contains(@class, "block") and contains(@class, "truncate")]')[0].attrib["href"]
     data["Website"] = company_link if company_link.startswith("http") else None
     keys = ["Sector", "Industry", "Country", "Exchange"]
     fields = [f.text_content() for f in title.cssselect('a[class="tab-link"]')]
