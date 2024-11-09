@@ -42,7 +42,7 @@ def get_stock(ticker):
     company_link = company_details.xpath('.//a[contains(@class, "tab-link") and contains(@class, "block") and contains(@class, "truncate")]')[0].attrib["href"]
     data["Website"] = company_link if company_link.startswith("http") else None
     keys = ["Sector", "Industry", "Country", "Exchange"]
-    fields = [f.text_content() for f in title.cssselect('a[class="tab-link"]')]
+    fields = [f.text_content() for f in title.cssselect('a[class~="tab-link"]')]
     data.update(dict(zip(keys, fields)))
 
     all_rows = [
